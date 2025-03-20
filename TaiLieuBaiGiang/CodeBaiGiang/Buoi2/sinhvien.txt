@@ -1,0 +1,3 @@
+T102|John Smith|True|102
+T002|Nguyễn Văn Trung|True|102
+T827|Nguyen Thi Hoa|False|10444
