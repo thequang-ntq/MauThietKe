@@ -1,0 +1,2 @@
+MS_SQLSERVER
+jdbc:sqlserver://localhost:1433;databaseName=22T1020362_SimpleAndMethodFactory;trustServerCertificate=true;encrypt=true|sa|sa
