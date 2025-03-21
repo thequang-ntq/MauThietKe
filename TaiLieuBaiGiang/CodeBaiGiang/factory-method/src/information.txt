@@ -1,0 +1,1 @@
+Factory method đỡ bớt tham số trong lời gọi tạo con vật (so với mẫu Simple Factory)

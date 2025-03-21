@@ -1,0 +1,28 @@
+A. Kịch bản game
+[Động vật ăn thịt] tấn công [Động vật ăn cỏ]
+có nhiều style khác nhau:
+Châu Phi: 
+	Sư tử --> ngựa vằn
+Châu Âu
+	Sói rừng --> sóc
+Châu Á
+	...
+	
+Các kịch bản tương tự
+B. Game kiếm hiệp
+Nhân vật có [Trang phục] sử dụng [Vũ khí]
+có nhiều "dòng nhân vật".
+Thiếu Lâm
+	Áo vải --> Côn
+Cái bang
+	Áo rách --> Gậy
+XYZ
+	Áo giáp sắt --> Súng
+...
+
+Bạn cần viết code để việc tạo ra nhân vật chơi một cách cơ động.
+
+C. Code ADO.NET
+Ứng dụng truy xuất nguồn dữ liệu cần có [DbConnection] [DbCommand] [DbParameter] phù hợp
+Có nhiều "dòng" của nguồn dữ liệu: Ms SQL Server, MySQL, Oracle, ...
+http://www.java2s.com/Tutorial/CSharp/0560__ADO.Net/ObtaintheDbProviderFactoryforSQLServerandcreateconnectionfromit.htm

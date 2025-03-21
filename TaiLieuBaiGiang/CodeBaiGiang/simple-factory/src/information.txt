@@ -1,0 +1,66 @@
+Cần tạo một game có một hoạt cảnh con vật kêu.
+Con vật có thể là mèo, chó, hoặc gà, hoặc cũng có thể là con vật khác (trong tương lai sẽ cài đặt thêm)
+
+Gà x = new Gà();
+x.kêu();
+
+Chó x = new Chó();
+x.kêu();
+
+//
+
+Về bản chất thì, nên tổng quát hoá các con vật theo kiểu thế này...
+
+interface ConVật {
+	void kêu();
+}
+
+class Gà implements ConVật {
+	//
+	//
+	@Override
+	public kêu() { System.out.println("ò ó o"); }
+}
+
+...để trong chương trình sẽ có một chút cơ động:
+
+// 1. Khai báo
+ConVật x;
+
+// 2. Tuỳ theo cấu hình để tạo con vật
+x = new Gà();
+hoặc 
+x = new Chó();
+
+// 3. Thể hiện hoạt cảnh
+x.kêu();
+
+Để tốt hơn nữa, thì làm theo cấu trúc sau:
+
+class ConVậtFactory {
+	public ConVật getConVật(String loại) {
+		if (loại == "GÀ")
+			return new Gà();
+		else if (loại == "CHÓ")
+			return new Chó();
+		else ...
+	}
+}
+
+Khi đó trong chương trình có thể cơ động
+
+// 1. Khai báo
+ConVật x;
+ConVậtFactory f = new ConVậtFactory();
+
+// 2. Tuỳ theo cấu hình để tạo con vật 
+x = f.getConVật("GÀ");
+hoặc
+x = f.getConVật("CHÓ");
+
+// 3. Thể hiện hoạt cảnh
+x.kêu();
+
+
+Bản nêu trên chính là mẫu Simple factory --- nhà máy đơn giản. Đó là nhà máy để tạo ra 
+đối tượng thuộc một "dòng" nào đó.
