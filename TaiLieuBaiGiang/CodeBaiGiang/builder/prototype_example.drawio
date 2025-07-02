@@ -1,0 +1,58 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.0.16 Chrome/132.0.6834.196 Electron/34.2.0 Safari/537.36" version="26.0.16">
+  <diagram name="Page-1" id="fujCgr77HZxoSMwpWIIm">
+    <mxGraphModel dx="863" dy="505" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="oEF0ojer7ztdYHNjIUMV-15" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="470" y="190" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="oEF0ojer7ztdYHNjIUMV-1" value="15" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="90" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="oEF0ojer7ztdYHNjIUMV-3" value="a" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="75" y="58" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="oEF0ojer7ztdYHNjIUMV-4" value="int a = 15;&amp;nbsp;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;int b;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;b= a;&lt;/span&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="560" y="23" width="80" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="oEF0ojer7ztdYHNjIUMV-6" value="soNha = &quot;77&quot;&lt;div&gt;tenDuong = &quot;Nguyen Hue St&quot;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="470" y="190" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="oEF0ojer7ztdYHNjIUMV-9" value="&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;maSinhVien = &quot;SV12&quot;;&lt;/span&gt;&lt;div style=&quot;text-wrap-mode: nowrap;&quot;&gt;hoTen= &quot;TrungNguyen&quot;;&lt;/div&gt;&lt;div style=&quot;text-wrap-mode: nowrap;&quot;&gt;gioiTinhNam= true;&lt;/div&gt;&lt;div style=&quot;text-wrap-mode: nowrap;&quot;&gt;diaChi = $AFB&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="270" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="oEF0ojer7ztdYHNjIUMV-10" value="nvtrung" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="20" y="238" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="oEF0ojer7ztdYHNjIUMV-11" value="&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;maSinhVien = &quot;SV12&quot;;&lt;/span&gt;&lt;div style=&quot;text-wrap-mode: nowrap;&quot;&gt;hoTen= &quot;TrungNguyen&quot;;&lt;/div&gt;&lt;div style=&quot;text-wrap-mode: nowrap;&quot;&gt;gioiTinhNam= true;&lt;/div&gt;&lt;div style=&quot;text-wrap-mode: nowrap;&quot;&gt;diaChi = $AFB&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="422" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="oEF0ojer7ztdYHNjIUMV-12" value="x" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="35" y="390" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="oEF0ojer7ztdYHNjIUMV-13" value="" style="endArrow=classic;html=1;rounded=0;exitX=1.002;exitY=0.633;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.011;entryY=0.845;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="oEF0ojer7ztdYHNjIUMV-9" target="oEF0ojer7ztdYHNjIUMV-6">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="430" as="sourcePoint" />
+            <mxPoint x="450" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oEF0ojer7ztdYHNjIUMV-14" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="oEF0ojer7ztdYHNjIUMV-11" target="oEF0ojer7ztdYHNjIUMV-17">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="430" as="sourcePoint" />
+            <mxPoint x="450" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oEF0ojer7ztdYHNjIUMV-16" value="husc" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="455" y="158" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="oEF0ojer7ztdYHNjIUMV-17" value="soNha = &quot;77&quot;&lt;div&gt;tenDuong = &quot;Nguyen Hue St.&quot;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="490" y="350" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="oEF0ojer7ztdYHNjIUMV-18" value="husc2" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="480" y="310" width="60" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

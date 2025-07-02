@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+/**
+ * @author nvtrung
+ *
+ */
+module Sample {
+}
