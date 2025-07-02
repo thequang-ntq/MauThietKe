@@ -1,0 +1,73 @@
+* 1 chương trình nên chứa các package:
++ Package chính: chứa file chạy ct, client code
++ Package models: chứa các file về model như SinhVien, NganhDaoTao
++ Package constant: chứa file chứa các thuộc tính không đổi như url, username, password kết nối db
++ Package config: Chứa file DBConfig để kết nối Connection đến CSDL dùng mẫu Singleton
++ Package Repo (Hoặc DAO): chứa file chứa các hàm để tương tác với CSDL, các hàm DAO làm việc với CSDL (xem, thêm, xóa) 
++ 1 số Package khác liên quan mẫu thiết kế
+- Singleton: nhóm Creational (kiến tạo), Dùng để tạo ra 1 instance (đối tượng) duy nhất cho 1 class. Thường dùng trong kết nối CSDL. Trong class DBConfig bình thường.
+- Simple Factory: nhóm Creational, Tạo ra một lớp Factory cho phép khởi tạo 1 loại đối tượng, ví dụ như kiểu CSDL như MySQL, MongoDB...; cho phép linh dộng thay đổi loại nguồn dữ liệu; hay các con vật như gà, chó, mèo...; Thường dùng khi có nhiều class cùng interface/cha, chọn theo tham số. Class bình thường có hàm chứa tham số.
++ Ví dụ: Factory tạo đối tượng DAO khác nhau (MySQLDAO, MongoDAO), Singleton giữ 1 kết nối CSDL.
++ Tạo đối tượng dựa trên tham số đầu vào: Client code —tạo→ Product 
+- Factory Method: nhóm Creational, hơn Simple Factory ở chỗ: không cần tham số nữa, không cần chỉnh code trong class Factory chính nữa, mà biến class đó thành abstract, và có các class con là <Loại>Factory sẽ extends class Factory chính, khi khởi tạo trong hàm main chỉ cần gọi class con đó là được. Factory cha là abstract, chứa hàm abstract cho các factory con là các class kế thừa nó override.
++ Tạo đối tượng dựa trên lớp Factory (Để lớp con quyết định tạo đối tượng nào): Client code — tạo → Factory — tạo → Product
+- Abstract Factory: nhóm Creational, gộp nhiều Factory Method. trong class factory chính (abstract) tạo nhiều hàm abstract đại diện cho nhiều hàm cho các đối tượng khác nhau. Factory cha là abstract, chứa các hàm abstract cho các factory con là các class kế thừa nó override.
++ Cung cấp họ (family) các đối tượng liên quan: Client code--tạo→ Factory - tạo → Product1, Product2, Product3, … 
+- Builder: nhóm Creational, Dùng để khởi tạo các thuộc tính cho 1 đối tượng của class theo dạng các hàm nối đuôi nhau, liên tiếp. Thường dùng khi class có nhiều thuộc tính bắt buộc và tùy chọn, không muốn quá nhiều constructor hoặc setter. Class bình thường.
++ Ví dụ: Bánh b = new Bánh.BánhBuilder(1.5, 0.7).ớt(0.3).cacao(5).build();
++ Lombok có hỗ trợ @Builder
+- Prototype: nhóm Creational, Dùng để thiết kế class cho phép sao chép đối tượng của class này. Sao chép (Clone) nghĩa là có các thuộc tính giống hệt và độc lập với cái được sao chép (Về địa chỉ). Class cha, con là class bình thường.
++ Class không được cài đặt theo Prototype thì phải dùng Gson chuyển đổi giữa object và JSON để sao chép đối tượng
++ Sao chép, ánh xạ thuộc tính của 2 class khác nhau: model mapper, DTO <-> Entity/POJO
++ Lưu ý cần bổ sung constructor với đối số là class đó
++ Đối với các class kế thừa: Tạo constructor với đối số class con, Override hàm của class cha
+public TenLopCha taoBanSao(){return new TenLopCon(this);}
+- Adapter: nhóm Structural, kết nối hai class có giao diện (interface) không tương thích với nhau bằng cách đóng gói (wrap) một class cũ vào một class mới có giao diện phù hợp với yêu cầu của chương trình. Class mới nên là 1 interface (hoặc class cũng được), và các class adapter implements từ class mới, chứa thuộc tính là đối tượng của class cũ.
++ Khi bạn có sẵn 1 class không thể sửa đổi (class cũ, class bên thứ 3, mã di sản…)
++ Nhưng bạn muốn dùng class đó như thể nó tuân theo một interface khác
++ Khi cần tái sử dụng code cũ mà không làm thay đổi giao diện bên ngoài
++ Export -> Jar file -> Add project -> Common-lib(.Jar)-> trong thư mục deploy. Build Path dùng lại file Jar
+class ClassMoiCuaClassCu(Adapter) implements (extends) ClassMoi
+{
+	private ClassCu x;
+	public ClassMoiCuaClassCu (ClassCu x) {
+		this.x = x;
+	}
+	@Override
+	public <Các hàm mới để adapter cho Class mới...>{}
+}
+- Flyweight: thuộc nhóm Structural, tiết kiệm bộ nhớ bằng cách tái sử dụng các đối tượng giống nhau thay vì tạo mới mỗi lần.
++ Khi ứng dụng cần tạo nhiều đối tượng giống nhau
++ Và những đối tượng này có phần trạng thái chung giống nhau
++ Bao gồm: 1 lớp đối tượng dùng chung, 1 lớp Factory để quản lý các đối tượng dùng chung (Sử dụng Hashmap để put và get trong việc tạo ra đối tượng của lớp dùng chung), 1 lớp main client code sử dụng
++ Tách ra: Intrinsic (Nội tại): là phần dùng chung, không thay dổi và tái sử dụng được. Ví dụ: loại, màu
+Extrinsic (Ngoại tại): phần riêng biệt, được truyền từ bên ngoài, không lưu trữ bên trong flyweight object. Ví dụ: vị trí (x,y), bán kính (r)
++ Chỉ intrinsic mới cần quản lý trong factory
+- Composite: Biểu diễn cấu trúc cây gồm các đối tượng con và đối tượng cha một cách đồng nhất, cho phép xử lý các đối tượng riêng lẻ và nhóm đối tượng theo cùng một cách. Dùng khi: thư mục và file; menu con - menu chính; nhóm - thành viên. Thường là cây thư mục.
++ Dùng đệ quy
++ Chỉ cần 1 bảng dữ liệu lưu chung
+- Decoration: nhóm Structural, cho phép bổ sung chức năng cho đối tượng đang tồn tại mà không làm thay đổi cấu trúc của nó. Không có sự thay đổi ở lớp gốc. Cho phép bổ sung chức năng & hành vi vào một đối tượng mà không ảnh hướng đến hành vi của các đối tượng khác đang tồn tại thuộc cùng class. Chúng ta có thể dùng mối quan hệ kế thừa để mở rộng hành vi của class. Việc này được làm trong thời gian biên dịch (lúc thiết kế class, lúc viết code), và tất cả các cá thể của class sẽ có được hành vi mở rộng.
++ Tạo interface `Component`
++ Tạo lớp cụ thể, cài đặt các hàm trong interface `Component`
++ Tạo lớp `BaseDecorator`, cài đặt các hàm trong interface `Component` — dưới dạng abstract. Lớp này chứa một tham chiếu đến interface `Component`
++ Tạo lớp cụ thể `ConcreteDecorator`, kế thừa `BaseDecorator`, cài đặt các hàm abstract được kế thừa từ `BaseDecorator`
++ Dùng lớp `ConcreteDecorator` để bổ sung cho các đối tượng giao diện `Component`
++ Gồm: Main, Component, Decorator (Package)
++ 		abstract class Cafe
+	abstract class Trang trí (kế thừa cái trên, 1 thuộc tính Cafe c, 1 hàm getCafe)
+	và các class cafe A, cafe B (Override các hàm getMota, getGia của Cafe)
+Các class CafeTrangTriX...(kế thừa abstract class Trang trí, các hàm getMoTa, getGia, get... cần thêm, 1 hàm khởi tạo CafeTrangTriX(Cafe c) throws Exception: this.c = c;)
++ Ban đầu có A, các cái B từ A, có thêm 1 loại C từ A nữa
+- Proxy: nhóm cấu trúc Structural, cho phép bạn cung cấp một đối tượng thay thế hoặc giữ chỗ cho một đối tượng khác. Proxy kiểm soát quyền truy cập vào đối tượng gốc, cho phép bạn thực hiện một số thao tác trước hoặc sau khi yêu cầu được chuyển đến đối tượng gốc.
++ Gồm: main, config, model, proxy. Trong main phải có ContainerApp và ChuongTrinh
++ 					Interface
+		Impl	->	Proxy(lớp bảo vệ, có Impl)		ContainerApp(Dùng Interface có thể truy cập cả Imlp và Proxy)
+									Client(lấy ContainerApp(Proxy))
+- Strategy: Mẫu hành vi (Behavior), tách rời thuật toán / hành vi ra khỏi lớp sử dụng nó, thay đổi thuật toán một cách linh hoạt tại runtime mà không sửa code lớp chính. VD: Benchmark khả năng insert cùng một tập dữ liệu (ví dụ 1000 sinh viên ngẫu nhiên) cho 3 loại cơ sở dữ liệu khác nhau: MySQL, SQL Server, SQLite
++ Khi có nhiều thuật toán khác nhau cho cùng một nhiệm vụ.
++ Khi bạn muốn dễ dàng thêm / thay đổi thuật toán mà không phải thay đổi code chính.
++ Ví dụ: sắp xếp tăng, giảm; tính giá khuyến mãi; lọc danh sách sinh viên...
++ Package: main, config, context (chứa thuộc tính interface strategy trong repo, hàm trong interface), model, strategy (giống repo)
++ Sau khi khởi tạo trong strategy như repo, có interface và các class implements tạo các hàm override làm việc với csdl, có thêm một context để chứa 1 phần tử interface của repo và chứa hàm trong interface để sử dụng như 1 cái máy để chạy từng cái phiên bản repo và so sánh (tách hành vi ra khởi lớp sử dụng nó, dùng cho thay đổi thuật toán)
+- State: mẫu hành vi, cấu trúc giống strategy, nhưng mục đích khác. Thay đổi hành vi theo trạng thái, thay đổi tự động theo trạng thái, nội bộ lớp tự chuyển đổi.
++ VD: các trạng thái của tv, điện thoại (yên lặng, máy bay, bình thường,...)
