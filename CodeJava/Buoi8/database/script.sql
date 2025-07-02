@@ -1,0 +1,1 @@
+SELECT * FROM composite_demo.file;
